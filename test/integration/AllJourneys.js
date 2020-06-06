@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/test/Opa5","sg/report/zprice/test/integration/pages/Common","sap/ui/test/opaQunit","sg/report/zprice/test/integration/pages/List","sg/report/zprice/test/integration/navigationJourney"],function(e,t){"use strict";e.extendConfig({arrangements:new t,viewNamespace:"sg.report.zprice.view.",autoWait:true})});

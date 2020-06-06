@@ -1,0 +1,1 @@
+sap.ui.define(["sg/report/zprice/controller/List.controller"],function(t){"use strict";QUnit.module("List Controller");QUnit.test("I should test the app controller loads",function(e){var o=new t;var n=o.getMetadata().getName();e.ok(n,"sg/report/zprice.controller.List")});QUnit.test("I should test any additional controls",function(t){t.ok(false,"Implement test")})});

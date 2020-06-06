@@ -1,0 +1,59 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+	xmlns:ux="http://www.sap.com/Protocols/OData4SAP/UX" xmlns:gp="http://www.sap.com/Protocols/SAPData/GenericPlayer" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZPRICE_REPORT_SRV" sap:schema-version="1" xml:lang="en">
+			<EntityType Name="SalesOrgF4" sap:content-version="1">
+				<Key><PropertyRef Name="SalesOrg"/></Key><Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false"
+					sap:semantics="SalesOrg" sap:unicode="false" sap:label="Sales Org."/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Name" sap:unicode="false" sap:label="Name"/><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Language" sap:unicode="false" sap:label="Language"/></EntityType>
+			<EntityType Name="DistChannelF4" sap:content-version="1">
+				<Key><PropertyRef Name="SalesOrg"/><PropertyRef Name="DistChannel"/></Key><Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:sortable="false" sap:unicode="false"
+					sap:label="Sales Org."/><Property Name="DistChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:sortable="false" sap:unicode="false"
+					sap:label="Distr. Channel"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false" sap:label="Name"/><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:unicode="false" sap:label="Language"/></EntityType>
+			<EntityType Name="ShipToF4" sap:content-version="1">
+				<Key><PropertyRef Name="Customer"/><PropertyRef Name="SalesOrg"/><PropertyRef Name="DistChannel"/><PropertyRef Name="Division"/><PropertyRef Name="Name1"/></Key><Property Name="Customer" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Customer" sap:unicode="false" sap:label="Customer"/><Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="SalesOrg" sap:unicode="false" sap:label="Sales Org."/><Property Name="DistChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:semantics="DistChannel" sap:unicode="false" sap:label="Distr. Channel"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Division" sap:unicode="false" sap:label="Division"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="30" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="CustName" sap:unicode="false" sap:label="Name1"/></EntityType>
+			<EntityType Name="OutputList" sap:content-version="1">
+				<Key><PropertyRef Name="Material"/><PropertyRef Name="CodeType"/><PropertyRef Name="CustomerOrBranch"/><PropertyRef Name="Price"/><PropertyRef Name="Unit"/></Key><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Material" sap:unicode="false" sap:label="Material Code"/><Property Name="CodeType" Type="Edm.String" Nullable="false" MaxLength="25" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:semantics="CodeType" sap:unicode="false" sap:label="Code Type"/><Property Name="CustomerOrBranch" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="Customer" sap:unicode="false" sap:label="Customer or Branch"/><Property Name="Price" Type="Edm.String" Nullable="false" MaxLength="30" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:semantics="Price" sap:unicode="false" sap:label="Price"/><Property Name="Unit" Type="Edm.String" Nullable="false" MaxLength="3" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:semantics="Unit" sap:unicode="false" sap:label="Int. Meas. Unit"/><Property Name="SalesOrg" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="SalesOrg" sap:unicode="false" sap:label="Sales Organisation"/><Property Name="DistChannel" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="DistChannel" sap:unicode="false" sap:label="Distribution Channel"/><Property Name="ShipTo" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="ShipTo" sap:unicode="false" sap:label="Ship To"/><Property Name="SoldTo" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="SoldTo" sap:unicode="false" sap:label="Sold To"/><Property Name="Date" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Date" sap:unicode="false" sap:label="Date"/></EntityType>
+			<EntityType Name="MaterialF4" sap:content-version="1">
+				<Key><PropertyRef Name="Language"/><PropertyRef Name="Material"/></Key><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:semantics="Description" sap:unicode="false" sap:label="Description"/><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Language" sap:unicode="false" sap:label="Language"/><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Material" sap:unicode="false" sap:label="Material"/><Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="SalesOrg" sap:unicode="false" sap:label="SalesOrg"/><Property Name="DistChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:semantics="DistChannel" sap:unicode="false" sap:label="DistChannel"/></EntityType>
+			<EntityType Name="SoldToF4" sap:content-version="1">
+				<Key><PropertyRef Name="Customer"/><PropertyRef Name="SalesOrg"/><PropertyRef Name="DistChannel"/><PropertyRef Name="Division"/><PropertyRef Name="Name1"/></Key><Property Name="Customer" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Customer" sap:unicode="false" sap:label="Customer"/><Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="SalesOrg" sap:unicode="false" sap:label="Sales Org."/><Property Name="DistChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:semantics="DistChannel" sap:unicode="false" sap:label="Distr. Channel"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="Division" sap:unicode="false" sap:label="Division"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="30" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:semantics="CustName" sap:unicode="false" sap:label="Name1"/></EntityType>
+			<EntityContainer Name="ZPRICE_REPORT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="SalesOrgF4Set" EntityType="ZPRICE_REPORT_SRV.SalesOrgF4" sap:content-version="1" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false"/><EntitySet Name="DistChannelF4Set" EntityType="ZPRICE_REPORT_SRV.DistChannelF4" sap:content-version="1" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false"/><EntitySet Name="ShipToF4Set" EntityType="ZPRICE_REPORT_SRV.ShipToF4" sap:content-version="1" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false"/><EntitySet Name="OutputListSet" EntityType="ZPRICE_REPORT_SRV.OutputList" sap:content-version="1" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false"/><EntitySet Name="MaterialF4Set" EntityType="ZPRICE_REPORT_SRV.MaterialF4" sap:content-version="1" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false"/><EntitySet Name="SoldToF4Set" EntityType="ZPRICE_REPORT_SRV.SoldToF4" sap:content-version="1" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://gwaas-efe292355.eu2.hana.ondemand.com:443/sap/opu/odata/sap/ZPRICE_REPORT_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://gwaas-efe292355.eu2.hana.ondemand.com:443/sap/opu/odata/sap/ZPRICE_REPORT_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

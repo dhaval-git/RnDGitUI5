@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog>
+		<!--id="idDialog" title="Select Material" class="sapUiPopupWithPadding" items="{path:'/results'}" liveChange="_handleValueHelpSearch" confirm="handleConfirm" cancel="handleClose">-->
+		<!--<StandardListItem id="idListItem" title="" description="" />-->
+	</SelectDialog>
+</core:FragmentDefinition>

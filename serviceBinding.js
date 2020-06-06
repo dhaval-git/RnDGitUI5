@@ -1,0 +1,1 @@
+function initModel(){var a="/OData_Provisioning/sap/opu/odata/sap/ZPRICE_REPORT_SRV/";var o=new sap.ui.model.odata.ODataModel(a,true);sap.ui.getCore().setModel(o)}

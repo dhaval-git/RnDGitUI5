@@ -1,0 +1,109 @@
+<mvc:View controllerName="sg.report.zprice.controller.List" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"  xmlns:fb="sap.ui.comp.filterbar" 
+xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<l:VerticalLayout width="100%">
+						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true">
+							<!--showClearButton="true"-->
+							<fb:filterItems>
+								<!--Date Selection-->
+								<fb:FilterItem id="idDate" name="A" label="Date" mandatory="true">
+									<fb:control>
+										<DatePicker id="idDatePicker" placeholder="MM/DD/YYYY" displayFormat="MM/dd/yyyy" valueFormat="yyyyMMdd" required="true"/>
+									</fb:control>
+								</fb:FilterItem>
+								<!--Start Sales Organization Selection-->
+								<fb:FilterItem id="SalesOrg" name="SalesOrg" label="Sales Org." labelTooltip="Sales Organization">
+									<fb:control>
+										<ComboBox id="idSalesOrg" value="J301" editable="disable">
+											<!--items="{ path: '/SalesOrgF4Set', sorter: { path: 'SalesOrg' } }"-->
+											<!--<core:Item key="{SalesOrg}" text="{SalesOrg}"/>-->
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+								<!--End Sales Organization Selection-->
+								<!--Start Distribution Channel Selection-->
+								<fb:FilterItem name="DistChannel" label="Dist. Channel" labelTooltip="Distribution Channel" mandatory="true">
+									<fb:control>
+										<ComboBox id="idDistChannel" items="{ path: '/DistChannelF4Set', sorter: { path: 'DistChannel' } }">
+											<!--loadItems="getMaterial"-->
+											<core:Item key="{DistChannel}" text="{DistChannel}"/>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+								<!--End Distribution Channel Selection-->
+								<!--Start Sold To Party Selection-->
+								<fb:FilterItem name="SoldTo" label="Sold To" labelTooltip="Sold To Party" mandatory="true">
+									<fb:control>
+										<Input id="idSoldTo" placeholder="Enter Sold To" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleSoldTo"/>
+										<!--<MultiInput id="idSoldTo" placeholder="Enter Sold To" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="handleSoldTo"/>-->
+									</fb:control>
+								</fb:FilterItem>
+								<!--End Sold To Party Selection-->
+								<!--Start Ship To Party Selection-->
+								<fb:FilterItem name="ShipTo" label="Ship To" labelTooltip="Ship To Party">
+									<fb:control>
+										<Input id="idShipTo" placeholder="Enter Ship To..." showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleShipTo"/>
+										<!--<MultiInput id="idShipTo" placeholder="Enter Ship To..." showValueHelp="true" valueHelpOnly="false" valueHelpRequest="handleShipTo"/>-->
+									</fb:control>
+								</fb:FilterItem>
+								<!--End Ship To Party Selection-->
+								<!--Start Material Selection-->
+								<fb:FilterItem name="Material" label="Material" labelTooltip="Material Number" mandatory="true">
+									<fb:control>
+										<MultiInput id="idMaterial" placeholder="Select Material" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="handleMaterial"/>
+									</fb:control>
+								</fb:FilterItem>
+								<!--End Material Selection-->
+							</fb:filterItems>
+						</fb:FilterBar>
+						<!--Table to display records-->
+						<Table id="tblOutput">
+							<!--items="{/SalesOrgF4Set}"-->
+							<columns>
+								<Column id="colMaterial">
+									<header>
+										<Label text="Material" id="lblMaterial"/>
+									</header>
+								</Column>
+								<Column id="colCodeType">
+									<header>
+										<Label text="Code Type" id="lblCodeType"/>
+									</header>
+								</Column>
+								<Column id="colCustBranch">
+									<header>
+										<Label text="Customer or Branch" id="lblCustBranch"/>
+									</header>
+								</Column>
+								<Column id="colPrice">
+									<header>
+										<Label text="Price" id="lblPrice"/>
+									</header>
+								</Column>
+								<Column id="colUnit">
+									<header>
+										<Label text="Unit" id="lblUnit"/>
+									</header>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem id="colListItem">
+									<cells>
+										<Text id="txtMaterail" text="{Material}"/>
+										<Text id="txtCodeType" text="{CodeType}"/>
+										<Text id="txtCustomerBranch" text="{CustomerOrBranch}"/>
+										<Text id="txtPrice" text="{Price}"/>
+										<Text id="txtUnit" text="{Unit}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</l:VerticalLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
